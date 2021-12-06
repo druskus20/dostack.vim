@@ -1,0 +1,9 @@
+*dostack.vim* syntax highlighting for Druskus's TODO system
+
+====================================================================
+Usage and Configuration                                 *DoStackUsage*
+
+This plugin will automatically provide syntax highlighting indentation
+for todo files (files ending in .todo).
+
+vim:ft=help
