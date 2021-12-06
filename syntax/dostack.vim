@@ -1,7 +1,3 @@
-" TODO Better TODO matching (inside [])
-" Lists
-" Markdown styling: *...* **...** ~~...~~
-
 if exists("b:current_syntax")
     finish
 endif
@@ -21,6 +17,11 @@ syn match DoStackHeader6 "^###.*$"
 syn match DoStackUrl /https\?:\/\/\(\w\+\(:\w\+\)\?@\)\?\([A-Za-z][-_0-9A-Za-z]*\.\)\{1,}\(\w\{2,}\.\?\)\{1,}\(:[0-9]\{1,5}\)\?\S*/
 syn match DoStackTag "@\w\+"
 syn match DoStackImportant "!IMPORTANT"
+
+syn region DoStackStrong start="*" end="*"
+syn match DoStackListMarker "\%(\t\| \{0,4\}\)[-*+]\%(\s\+\S\)\@=" 
+syn match DoStackOrderedListMarker "\%(\t\| \{0,4}\)\<\d\+\.\%(\s\+\S\)\@=" 
+
 
 "" Cell
 syn keyword DoStackTodo contained TODO
@@ -49,6 +50,10 @@ hi def link DoStackHeader6 markdownH6
 hi def link DoStackUrl markdownUrl
 hi def link DoStackTag markdownRule
 hi def link DoStackImportant Special
+
+hi def link DoStackStrong markdownBold
+hi def link DoStackListMarker markdownListMarker     
+hi def link DoStackOrderedListMarker markdownOrderedListMarker     
 
 "" Cell
 hi def link DoStackTodo Special
