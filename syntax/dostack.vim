@@ -15,7 +15,7 @@ syn match DoStackHeader5 "^#####.*$"
 syn match DoStackHeader6 "^######.*$"
 
 syn match DoStackUrl /https\?:\/\/\(\w\+\(:\w\+\)\?@\)\?\([A-Za-z][-_0-9A-Za-z]*\.\)\{1,}\(\w\{2,}\.\?\)\{1,}\(:[0-9]\{1,5}\)\?\S*/
-syn match DoStackTag "@\w\+"
+syn match DoStackTag "@\w\+\(-\(\w\)*\)*"
 syn match DoStackImportant "!important"
 
 syn region DoStackStrong start="*" end="*"
