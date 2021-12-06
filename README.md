@@ -1,12 +1,10 @@
 <h1 align="center">dostack.vim</h1>
 <p align="center" >Syntax plugin for my TODO stack</p>
-
+<br>
 <p align="center">
-    <img width="700" src=".github/showcase.png">
+    <img width="400" src=".github/showcase.png">
 </p>
 
-
-Syntax for my TODO stack
 
 ## Highlighting groups
 ```
