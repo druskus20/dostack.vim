@@ -1,3 +1,7 @@
+" TODO Better TODO matching (inside [])
+" Lists
+" Markdown styling: *...* **...** ~~...~~
+
 if exists("b:current_syntax")
     finish
 endif
@@ -6,6 +10,7 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 syn match DoStackComment "^//.*$"
+
 syn match DoStackHeader1 "^#.*$"
 syn match DoStackHeader2 "^##.*$"
 syn match DoStackHeader3 "^###.*$"
@@ -15,13 +20,20 @@ syn match DoStackHeader6 "^###.*$"
 
 syn match DoStackUrl /https\?:\/\/\(\w\+\(:\w\+\)\?@\)\?\([A-Za-z][-_0-9A-Za-z]*\.\)\{1,}\(\w\{2,}\.\?\)\{1,}\(:[0-9]\{1,5}\)\?\S*/
 syn match DoStackTag "@\w\+"
-syn match DoStackDate "[0-3]\=[0-9]-[0-1]\=[0-9]-\d\d\d\d"
+syn match DoStackImportant "!IMPORTANT"
 
-syn keyword DoStackTodo TODO 
-syn keyword DoStackDone DONE 
-syn keyword DoStackDaily DAILY
-syn keyword DoStackIdea IDEA
-syn keyword DoStackImportant Important 
+"" Cell
+syn keyword DoStackTodo contained TODO
+syn keyword DoStackDone contained DONE 
+syn keyword DoStackIdea contained IDEA
+syn keyword DoStackDaily contained DAILY
+syn keyword DoStackWeekly contained WEEKLY
+syn keyword DoStackMonthly contained MONTHLY
+syn cluster DoStackCellType contains=DoStackTodo,DoStackDone,DoStackIdea,DoStackDaily,DoStackWeekly,DoStackMonthly
+
+syn match DoStackDate contained "[0-3]\=[0-9]-[0-1]\=[0-9]-\d\d\d\d"
+
+syn region DoStackCell start="\[" end="\]" contains=@DoStackCellType,DoStackDate
 
 syntax sync fromstart
 
@@ -36,13 +48,19 @@ hi def link DoStackHeader6 markdownH6
 
 hi def link DoStackUrl markdownUrl
 hi def link DoStackTag markdownRule
-hi def link DoStackDate markdownId
+hi def link DoStackImportant Special
 
+"" Cell
 hi def link DoStackTodo Special
 hi def link DoStackDone Special
-hi def link DoStackDaily Special
 hi def link DoStackIdea Special
-hi def link DoStackImportant Special
+hi def link DoStackDaily Special
+hi def link DoStackWeekly Special
+hi def link DoStackMonthly Special
+
+hi def link DoStackDate markdownId
+
+hi def link DoStackCell markdownRule
 
 let b:current_syntax = "todos"
 
