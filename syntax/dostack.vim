@@ -31,7 +31,7 @@ syn keyword DoStackWip contained WIP
 syn keyword DoStackDaily contained DAILY
 syn keyword DoStackWeekly contained WEEKLY
 syn keyword DoStackMonthly contained MONTHLY
-syn cluster DoStackCellType contains=DoStackTodo,DoStackDone,DoStackIdea,DoStackDaily,DoStackWeekly,DoStackMonthly
+syn cluster DoStackCellType contains=DoStackTodo,DoStackDone,DoStackIdea,DoStackWip,DoStackDaily,DoStackWeekly,DoStackMonthly
 
 syn match DoStackDate "[0-3]\=[0-9]-[0-1]\=[0-9]-\d\d\d\d"
 
