@@ -28,10 +28,12 @@ syn keyword DoStackTodo contained TODO
 syn keyword DoStackDone contained DONE 
 syn keyword DoStackIdea contained IDEA
 syn keyword DoStackWip contained WIP
+syn keyword DoStackDrop contained DROP
+syn keyword DoStackWait contained WAIT
 syn keyword DoStackDaily contained DAILY
 syn keyword DoStackWeekly contained WEEKLY
 syn keyword DoStackMonthly contained MONTHLY
-syn cluster DoStackCellType contains=DoStackTodo,DoStackDone,DoStackIdea,DoStackWip,DoStackDaily,DoStackWeekly,DoStackMonthly
+syn cluster DoStackCellType contains=DoStackTodo,DoStackDone,DoStackIdea,DoStackWip,DoStackDrop,DoStackWait,DoStackDaily,DoStackWeekly,DoStackMonthly
 
 syn match DoStackDate "@[0-3]\=[0-9]-[0-1]\=[0-9]-\d\d\d\d"
 
@@ -61,6 +63,8 @@ hi DoStackTodo guifg=#eca8a8 gui=bold
 hi DoStackDone guifg=#ccd389 gui=bold
 hi DoStackIdea guifg=#a5c6e1 gui=bold
 hi DoStackWip guifg=#efd5a0 gui=bold
+hi DoStackDrop guifg=#7e848f gui=bold
+hi DoStackWait guifg=#ababab gui=bold
 hi DoStackDaily guifg=#c7ebe6 gui=bold
 hi DoStackWeekly guifg=#c7ebe6 gui=bold
 hi DoStackMonthly guifg=#c7ebe6 gui=bold
